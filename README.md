@@ -7,3 +7,11 @@ Assumptions made:
 - thus implied that we have a single level of folders (with files or empty)
 - files cannot be on the same level as folders 
 - (Justification: Given task specifies operations to be done for a folder not a path)
+
+Commands:
+1. LIST: LIST folder_name
+2. DELETE: DELETE folder_name or DELETE folder_name/file_name or DELETE /
+3. MOVE: MOVE src_folder_name/src_file_name dest_folder_name
+4. CREATE: CREATE folder_name
+5. HELP: HELP
+6. SUMMARY: SUMMARY folder_name
