@@ -1,11 +1,12 @@
 function toHex(str) {
-  return str.split('')
-    .map(c => c.charCodeAt(0).toString(16).padStart(2, '0'))
-    .join('');
+  return str
+    .split("")
+    .map((c) => c.charCodeAt(0).toString(16).padStart(2, "0"))
+    .join("");
 }
 
 function fromHex(hex) {
-  let str = '';
+  let str = "";
   for (let i = 0; i < hex.length; i += 2) {
     str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
   }
@@ -13,7 +14,7 @@ function fromHex(hex) {
 }
 
 function xorEncrypt(code, key) {
-  let encrypted = '';
+  let encrypted = "";
   for (let i = 0; i < code.length; i++) {
     const codeChar = code.charCodeAt(i);
     const keyChar = key.charCodeAt(i % key.length);
@@ -24,7 +25,7 @@ function xorEncrypt(code, key) {
 
 function xorDecrypt(tokenHex, key) {
   const encrypted = fromHex(tokenHex);
-  let decrypted = '';
+  let decrypted = "";
   for (let i = 0; i < encrypted.length; i++) {
     const encChar = encrypted.charCodeAt(i);
     const keyChar = key.charCodeAt(i % key.length);
@@ -133,7 +134,7 @@ if (!operations.includes(operation)) {
         records.shift();
       }
       break;
-      
+
     case "SUMMARY":
       if (args.length !== 1) {
         valid = false;
@@ -162,6 +163,16 @@ if (!operations.includes(operation)) {
         valid = false;
         error = "CREATE takes only one arguement, name of folder";
       }
+      for (const item of $("Get folder ID").all()) {
+        if (
+          item.json.mimeType === "application/vnd.google-apps.folder" &&
+          item.json.name === args[0]
+        ) {
+          valid = false;
+          error = "folder name already exists pls use some other name";
+          break;
+        }
+      }
       break;
 
     case "DELETE":
@@ -171,17 +182,18 @@ if (!operations.includes(operation)) {
       } else if (args[0] === "CONFIRM") {
         const key = $vars.key;
         const phone = $("Webhook").first().json.body.From.split("+91")[1];
-        const decode = xorDecrypt(args[1], phone)
-        if (decode === key){
-          for (const item of $("Get folder ID").all()){
-            if (item.json.mimeType === "application/vnd.google-apps.folder"){
-              records.push(item.json)
+        const decode = xorDecrypt(args[1], phone);
+
+        if (decode === key) {
+          for (const item of $("Get folder ID").all()) {
+            if (item.json.mimeType === "application/vnd.google-apps.folder") {
+              records.push(item.json);
             }
           }
-          $('Webhook').first().json.body.Body = "DELETE ~all";
+          $("Webhook").first().json.body.Body = "DELETE ~all";
         } else {
           valid = false;
-          error = "unauthorized attempt"
+          error = "unauthorized attempt";
         }
       } else if (args[0] === "~all") {
         const key = $vars.key;
@@ -200,6 +212,12 @@ if (!operations.includes(operation)) {
         error = "UPLOAD require folder_name file_name";
       } else if ($("Webhook").first().json.body.MediaUrl0) {
         getId(args[0]);
+        for (const item of $("Get folder ID").all()) {
+          if (item.json.parents && item.json.parents[0] === records[0].id && args[1] === item.json.name) {
+            valid = false;
+            error = "file with same name already exists"
+          }
+        }
       } else {
         valid = false;
         error = "please upload a media";
