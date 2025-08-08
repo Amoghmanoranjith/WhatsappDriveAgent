@@ -9,6 +9,7 @@ Assumptions made:
 - (Justification: Given task specifies operations to be done for a folder not a path)
 - File or folder names can contain the characters [a-z][A-Z][0-9]._
 - It cannot contain whitespaces, / are used for splitting the path so that cannot be part of name
+- any consecutive /'s will be normalized
 Commands:
 1. LIST: LIST folder_name
 2. DELETE: DELETE folder_name or DELETE folder_name/file_name or DELETE /
