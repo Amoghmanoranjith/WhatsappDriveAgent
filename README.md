@@ -17,6 +17,7 @@ send: join wooden-board
 
 ## Google Creds:
 client_id: 484328413306-32gg6e0botdsiu5joc5h8rqu909g4suf.apps.googleusercontent.com
+
 client_secret: GOCSPX-gMc3SqxiLiyVhI5fif8dACrRyT** (omitted)
 
 ## Commands:
