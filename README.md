@@ -103,7 +103,3 @@ client_secret: GOCSPX-gMc3SqxiLiyVhI5fif8dACrRyT** (omitted)
 
 ### HELP
 **Purpose:** Get a list of all operations and how to use them.
-
-**Syntax:**  HELP
-
-
