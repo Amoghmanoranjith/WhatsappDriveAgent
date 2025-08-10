@@ -6,6 +6,16 @@ Assumptions made:
 - It cannot contain whitespaces, / are used for splitting the path so that cannot be part of name
 - any consecutive /'s will be normalized
 
+## Twilio setup
+### Scan this QR code :
+<img width="261" height="259" alt="image" src="https://github.com/user-attachments/assets/9edc7751-9a4d-4749-9f9a-7d4d770ce481" />
+
+### Manual setup :
+Use WhatsApp and send a message from your device to +14155238886
+
+send: join wooden-board
+
+
 ## Commands:
 ### LIST  
 **Purpose:** Display the contents of a specified folder.  
