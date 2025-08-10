@@ -10,11 +10,14 @@ Assumptions made:
 ### Scan this QR code :
 <img width="261" height="259" alt="image" src="https://github.com/user-attachments/assets/9edc7751-9a4d-4749-9f9a-7d4d770ce481" />
 
-### Manual setup :
+## Manual setup :
 Use WhatsApp and send a message from your device to +14155238886
 
 send: join wooden-board
 
+## Google Creds:
+client_id: 484328413306-32gg6e0botdsiu5joc5h8rqu909g4suf.apps.googleusercontent.com
+client_secret: GOCSPX-gMc3SqxiLiyVhI5fif8dACrRyT** (omitted)
 
 ## Commands:
 ### LIST  
