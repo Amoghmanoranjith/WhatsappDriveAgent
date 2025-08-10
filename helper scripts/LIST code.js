@@ -38,13 +38,13 @@ else if (args.length === 1) {
       }
     }
     if (!found) {
-      message = "The given folder does not exist";
+      message = "This command is for listing folders";
       return { message };
     }
   }
   for (let idx = 0; idx < currentFolder.children.length; idx++) {
     const child = currentFolder.children[idx];
-    message += `\n#${idx + 1}. ${child.name} (${child.mimeType})`;
+    message += `\n#${idx + 1}. ${child.name} :${child.mimeType.split('.').pop()}`;
   }
   return { message };
 }
