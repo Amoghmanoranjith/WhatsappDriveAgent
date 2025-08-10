@@ -11,7 +11,18 @@ Assumptions made:
 - It cannot contain whitespaces, / are used for splitting the path so that cannot be part of name
 - any consecutive /'s will be normalized
 Commands:
-1. LIST: LIST folder_name
+### LIST  
+**Purpose:** Display the contents of a specified folder.  
+**Syntax:** LIST <folder_name>
+**Arguments:**  
+- `<folder_name>` — **Required.** The name of the folder to list.  
+  - Use `/` to list the root of the drive.  
+  - Only **one argument** is allowed. Supplying more than one will result in an error.  
+**Examples:**  
+- `LIST p1` → Lists the contents of folder `p1`.  
+- `LIST /` → Lists the contents of the root drive.  
+- `LIST p1 p2` → ❌ **Error:** LIST accepts only one argument.
+
 2. DELETE: DELETE folder_name or DELETE folder_name/file_name or DELETE /
 3. MOVE: MOVE src_folder_name/src_file_name dest_folder_name
 4. CREATE: CREATE folder_name
